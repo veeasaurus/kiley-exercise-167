@@ -58,11 +58,14 @@ public class KileyMainClass
 	displayWelcomeBanner();			
 //Input
 	userName = getUserName(input);
+	//main menu
+	displayMainMenu();
 	//prime read
 			rateSelection = validateMainMenu(input);
 	//run while
 		while (rateSelection != 'Q')
 		{
+			displayItemMenu();
 			itemSelection = validateItemMenu(input);
 		while (itemSelection != 'R')
 		{
@@ -151,6 +154,17 @@ public class KileyMainClass
 		localUserName = borrowedInput.next();
 		return localUserName;
 	}
+	//main menu void 
+	public static void displayMainMenu()
+	{
+		System.out.println("Main Menu");
+		System.out.println("\n**************************************************");
+		System.out.printf("%-8s%-25s%2.1f%2s\n", "[A] for", DISCOUNT_NAME_MEMBER,  DISCOUNT_RATE_MEMBER * 100, "%");
+		System.out.printf("%-8s%-25s%2.1f%2s\n", "[B] for", DISCOUNT_NAME_SENIOR,  DISCOUNT_RATE_SENIOR * 100, "%");
+		System.out.printf("%-8s%-25s%2.1f%2s\n", "[C] for", DISCOUNT_NAME_NONE, DISCOUNT_RATE_NONE, "%");
+		System.out.printf("%-20s\n", "[Q] to Quit");
+		System.out.println("\n**************************************************");
+	}
 	//main menu
 	public static char validateMainMenu(Scanner borrowedInput)
 	{
@@ -182,6 +196,17 @@ public class KileyMainClass
 		}//end while
 		return localSelection;
 		}//end validate main menu
+	//item menu void
+	public static void displayItemMenu()
+	{
+		System.out.println("Item Menu");
+		System.out.println("\n**************************************************");
+		System.out.printf("%-8s%-25s%2s%6.2f\n", "[A] for", ITEM_NAME_PREMIUM, "$",  ITEM_PRICE_PREMIUM);
+		System.out.printf("%-8s%-25s%2s%6.2f\n", "[B] for", ITEM_NAME_SPECIAL,  "$", ITEM_PRICE_SPECIAL);
+		System.out.printf("%-8s%-25s%2s%6.2f\n", "[C] for", ITEM_NAME_BASIC, "$",  ITEM_PRICE_BASIC);
+		System.out.printf("%-27s\n", "[R] to Return to Main Menu");
+		System.out.println("\n**************************************************");
+	}
 	public static char validateItemMenu(Scanner borrowedInput)
 	{
 		char itemSelection;
